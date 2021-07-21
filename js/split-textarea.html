@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <title>Envoie d'un texte à répartir sur plusieurs lignes en JS</title>
+    </head>
+    <body>
+        <h1>Envoie d'un texte à répartir sur plusieurs lignes en JS</h1>
+        <form method="post">
+            <label for="text">Votre texte</label><br>
+            <textarea name="text" id="text" cols="30" rows="10"></textarea><br>
+            <button id="submit">Envoyer votre texte</button>
+        </form>
+        <div id="response"></div>
+
+        <script>
+
+            const submit = document.getElementById('submit');
+            const response = document.getElementById('response');
+            submit.addEventListener('click', splitText);
+
+            function splitText(e) {
+                e.preventDefault();
+                const text = document.getElementById('text').value;
+                // console.log(text);
+                const tabStrSplit = text.split('\n');
+                // console.log(tabStrSplit);
+                createHtml(tabStrSplit);
+            }
+            function createHtml(data) {
+                response.innerHTML = "";
+                const nbLigne = data.length;
+                const h2 = document.createElement('h2');
+                const textNbLigne = "Votre texte contient " + nbLigne + " ligne(s)";
+                h2.textContent = textNbLigne;
+                response.append(h2);
+
+                data.forEach((item, index) => {
+                    const p = document.createElement('p');
+                    const textP = "La ligne numéro " + (index + 1) + " contient : " + item;
+                    p.textContent = textP;
+                    response.append(p);
+                });
+            }
+
+        </script>
+    </body>
+</html>

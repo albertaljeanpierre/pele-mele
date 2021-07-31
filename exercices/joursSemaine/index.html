@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>AJAX - Quel est le jour de la semaine?</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1>AJAX - Quel est le jour de la semaine? </h1>
+        <h2>Énoncé de l'exercice</h2>
+        <p> Sur une page, vous placez trois éléments :</p>
+        <ol>
+            <li>un input text</li>
+            <li>un bouton « lire » </li>
+            <li>une table avec une seule colonne dont le titre est « Valeurs »</li>
+        </ol>
+        
+        <p>  Dans l'input, vous pouvez placer un chiffre compris entre 1 et 7 (jour de la semaine). Vous devez veiller du côté client que la valeur encodée respecte ces conditions. Lorsque vous cliquez sur le bouton, vous ajoutez à la table la valeur JSON retournée par un script PHP via AJAX. Cette valeur est le nom du jour en français correspondant au chiffre passé en paramètre. Une vérification doit également être faite du côté serveur et si le jour demandé n'est pas compris entre 1 et 7, le script retourne le chiffre demandé suivi de « n'est pas un numéro de jour valide ».</p>
+        <hr>
+        <form>
+            <label for="jour">Quel est le numéro du jour?</label><br>
+            <input type="text" id="jour" name="jour"><br>
+            <input type="submit" value="Lire" id="submit">
+            
+        </form>
+        <table >
+            <thead><tr><th>Valeurs</th></tr></thead>
+            <tbody id="donnee"></tbody>
+        </table>
+        <script src="js/main.js" type="text/javascript"></script>
+    </body>
+</html>
